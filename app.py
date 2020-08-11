@@ -7,11 +7,6 @@ import numpy as np
 import plotly.express as px
 import pandas as pd
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
-
 # fig 0
 
 bigram_df = pd.read_csv('bigram_df.csv')
@@ -200,6 +195,15 @@ fig3.update_layout(
 fig3.update_xaxes(title_text='')
 fig3.update_yaxes(title_text='')
 
+########### Initiate the app
+
+########### Initiate the app
+tabtitle='beer!'
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
+app.title= 'ProQuest TDM: A Sample'
+
 
 app.layout = html.Div(children=[
     html.H1(children='CBS 60 Minutes'),
@@ -229,4 +233,4 @@ app.layout = html.Div(children=[
         ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
