@@ -20,8 +20,6 @@ fig0 = px.bar(bigram_df, y="bigram", x="freq", color = 'freq', animation_frame="
              color_continuous_scale=px.colors.sequential.Viridis,
              template="simple_white")
 
-fig0.update_layout(yaxis={'categoryorder':'total ascending'})
-
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
