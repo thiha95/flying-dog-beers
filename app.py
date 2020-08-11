@@ -61,6 +61,26 @@ annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
 fig2.update_layout(annotations=annotations)
 
 
+# fig3
+
+df_pro = pd.read_csv('df_pro.csv')
+
+fig3 = px.histogram(df_pro, x='polarity', histnorm='probability',
+                facet_col='producer', facet_col_wrap = 4)
+fig3.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+
+fig3.update_layout(
+    title="Producer Style Comparison",
+    font=dict(
+        family="Arial"
+    )
+)
+
+fig3.update_xaxes(title_text='')
+fig3.update_yaxes(title_text='')
+
+
+
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -77,7 +97,12 @@ app.layout = html.Div(children=[
     
     html.Div(dcc.Graph(
         id='example-graph2',
-        figure=fig2))
+        figure=fig2)),
+    
+    html.Div(dcc.Graph(
+        id='example-graph3',
+        figure=fig3))
+    
     ]
 )
 
