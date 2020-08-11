@@ -9,7 +9,7 @@ import pandas as pd
 
 # fig 0
 
-bigram_df = pd.read_csv('bigram_df.csv')
+bigram_df = pd.read_csv('https://raw.githubusercontent.com/thiha95/flying-dog-beers/master/bigram_df.csv', error_bad_lines=False)
 
 fig0 = px.bar(bigram_df, y="bigram", x="freq", color = 'freq', animation_frame="year", orientation = 'h',
 
@@ -24,7 +24,7 @@ fig0.update_layout(yaxis={'categoryorder':'total ascending'})
 
 # fig 1
 
-us_df = pd.read_csv("us_df.csv")
+us_df = pd.read_csv('https://raw.githubusercontent.com/thiha95/flying-dog-beers/master/us_df.csv', error_bad_lines=False)
 
 title = 'Main Source for News'
 labels = ['U.S.']
@@ -122,8 +122,7 @@ fig1.update_layout(annotations=annotations)
 
 fig2 = go.Figure()
 
-df_pol = pd.read_csv('df_pol.csv')
-
+df_pol = pd.read_csv('https://raw.githubusercontent.com/thiha95/flying-dog-beers/master/df_pol.csv', error_bad_lines=False)
 
 
 # make subplots
@@ -175,7 +174,7 @@ fig2.update_layout(annotations=annotations)
 
 # fig3
 
-df_pro = pd.read_csv('df_pro.csv')
+df_pro = pd.read_csv('https://raw.githubusercontent.com/thiha95/flying-dog-beers/master/df_pro.csv', error_bad_lines=False)
 
 fig3 = px.histogram(df_pro, x='polarity', histnorm='probability',
                 facet_col='producer', facet_col_wrap = 4)
